@@ -1,0 +1,195 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/fases/fase.gd" id="script"]
+[ext_resource type="PackedScene" path="res://cenas/mundos/mundo_fase_1.tscn" id="mundo"]
+[ext_resource type="PackedScene" path="res://cenas/personagens/jogador.tscn" id="jogador"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/moeda.tscn" id="moeda"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/chave.tscn" id="chave"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/coracao.tscn" id="coracao"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/portao.tscn" id="portao"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/portal_saida.tscn" id="saida"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/tocha.tscn" id="tocha"]
+[ext_resource type="PackedScene" path="res://cenas/ui/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://cenas/ui/menu_pausa.tscn" id="pausa"]
+[ext_resource type="PackedScene" path="res://cenas/ui/subir_nivel.tscn" id="nivel"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_bomba.tscn" id="slime_bomba"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_gigante.tscn" id="slime_gigante"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_patrulheiro.tscn" id="slime_patrulheiro"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_perseguidor.tscn" id="slime_perseguidor"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/golem_pedra.tscn" id="chefe"]
+
+[node name="Fase1" type="Node2D"]
+script = ExtResource("script")
+tempo_limite = 240.0
+musica = "fase1"
+cenas_spawn = Array[PackedScene]([ExtResource("slime_perseguidor"), ExtResource("slime_patrulheiro"), ExtResource("slime_bomba")])
+intervalo_spawn_inicial = 12.0
+intervalo_spawn_minimo = 6.0
+max_inimigos = 12
+tem_bandeira = false
+luz_jogador = false
+
+[node name="Mundo" parent="." instance=ExtResource("mundo")]
+
+[node name="Decoracoes" type="Node2D" parent="."]
+
+[node name="Entidades" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Portoes" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="Portao1" parent="Entidades/Portoes" instance=ExtResource("portao")]
+position = Vector2(632, 360)
+
+[node name="Itens" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="Chave1" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(712, 72)
+
+[node name="Chave2" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(280, 248)
+
+[node name="Chave3" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(56, 440)
+
+[node name="Moeda1" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(200, 88)
+
+[node name="Moeda2" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(328, 88)
+
+[node name="Moeda3" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(424, 88)
+
+[node name="Moeda4" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(488, 136)
+
+[node name="Moeda5" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(488, 232)
+
+[node name="Moeda6" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(200, 280)
+
+[node name="Moeda7" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(392, 280)
+
+[node name="Moeda8" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(568, 280)
+
+[node name="Moeda9" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(136, 168)
+
+[node name="Moeda10" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(136, 360)
+
+[node name="Moeda11" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(296, 392)
+
+[node name="Moeda12" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(536, 360)
+
+[node name="Moeda13" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(584, 168)
+
+[node name="Moeda14" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(744, 88)
+
+[node name="Moeda15" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(72, 248)
+
+[node name="Moeda16" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(408, 328)
+
+[node name="Moeda17" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(232, 424)
+
+[node name="Moeda18" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(568, 424)
+
+[node name="Moeda19" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(744, 200)
+
+[node name="Moeda20" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(360, 40)
+
+[node name="Coracao1" parent="Entidades/Itens" instance=ExtResource("coracao")]
+position = Vector2(424, 232)
+
+[node name="Coracao2" parent="Entidades/Itens" instance=ExtResource("coracao")]
+position = Vector2(200, 440)
+
+[node name="Inimigos" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="SlimePatrulheiro1" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(264, 88)
+direcao = Vector2(1, 0)
+distancia = 144.0
+
+[node name="SlimePatrulheiro2" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(488, 200)
+direcao = Vector2(0, 1)
+distancia = 128.0
+
+[node name="SlimePatrulheiro3" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(168, 280)
+direcao = Vector2(1, 0)
+distancia = 128.0
+
+[node name="SlimePatrulheiro4" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(136, 312)
+direcao = Vector2(0, 1)
+distancia = 96.0
+
+[node name="SlimeBomba1" parent="Entidades/Inimigos" instance=ExtResource("slime_bomba")]
+position = Vector2(520, 360)
+
+[node name="SlimeGigante1" parent="Entidades/Inimigos" instance=ExtResource("slime_gigante")]
+position = Vector2(712, 168)
+
+[node name="SlimeBomba2" parent="Entidades/Inimigos" instance=ExtResource("slime_bomba")]
+position = Vector2(408, 328)
+
+[node name="SlimePerseguidor1" parent="Entidades/Inimigos" instance=ExtResource("slime_perseguidor")]
+position = Vector2(584, 424)
+
+[node name="SlimePerseguidor2" parent="Entidades/Inimigos" instance=ExtResource("slime_perseguidor")]
+position = Vector2(88, 424)
+
+[node name="Projeteis" type="Node2D" parent="Entidades"]
+
+[node name="Saida" parent="Entidades" instance=ExtResource("saida")]
+position = Vector2(728, 392)
+
+[node name="Chefe" parent="Entidades" instance=ExtResource("chefe")]
+position = Vector2(696, 344)
+
+[node name="Jogador" parent="Entidades" instance=ExtResource("jogador")]
+position = Vector2(56, 88)
+
+[node name="PontosSpawn" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(760, 24)
+
+[node name="Spawn2" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(40, 456)
+
+[node name="Spawn3" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(760, 232)
+
+[node name="Spawn4" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(456, 24)
+
+[node name="Spawn5" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(424, 456)
+
+[node name="TimerSpawn" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[node name="MenuPausa" parent="." instance=ExtResource("pausa")]
+
+[node name="SubirNivel" parent="." instance=ExtResource("nivel")]

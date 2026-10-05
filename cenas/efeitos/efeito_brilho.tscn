@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/efeitos/efeito_particulas.gd" id="script"]
+
+[sub_resource type="Gradient" id="fade"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="EfeitoBrilho" type="CPUParticles2D"]
+z_index = 5
+emitting = false
+amount = 14
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, -50.0)
+initial_velocity_min = 15.0
+initial_velocity_max = 40.0
+damping_min = 40.0
+damping_max = 80.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color = Color(1, 0.9, 0.4, 1)
+color_ramp = SubResource("fade")
+script = ExtResource("script")

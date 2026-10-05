@@ -1,0 +1,266 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="script"]
+[ext_resource type="Texture2D" path="res://recursos/ui/coracao_cheio.tres" id="cor"]
+[ext_resource type="Texture2D" path="res://recursos/ui/chave.tres" id="chave"]
+[ext_resource type="Texture2D" path="res://recursos/ui/moeda.tres" id="moeda"]
+[ext_resource type="Texture2D" path="res://arte/ui/icones.png" id="icones"]
+
+[sub_resource type="AtlasTexture" id="icone_esquiva"]
+atlas = ExtResource("icones")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="fundo_BarraXP"]
+bg_color = Color(0.094, 0.078, 0.145, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="cheio_BarraXP"]
+bg_color = Color(0.17, 0.91, 0.96, 1)
+
+[sub_resource type="StyleBoxFlat" id="fundo_Recarga"]
+bg_color = Color(0.094, 0.078, 0.145, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="cheio_Recarga"]
+bg_color = Color(0.996, 0.682, 0.204, 1)
+
+[sub_resource type="StyleBoxFlat" id="fundo_RecargaEsq"]
+bg_color = Color(0.094, 0.078, 0.145, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="cheio_RecargaEsq"]
+bg_color = Color(0.17, 0.91, 0.96, 1)
+
+[node name="HUD" type="CanvasLayer"]
+layer = 5
+script = ExtResource("script")
+
+[node name="Topo" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="Esquerda" type="VBoxContainer" parent="Topo"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Vidas" type="HBoxContainer" parent="Topo/Esquerda"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Coracao1" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao2" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao3" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao4" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao5" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao6" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao7" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao8" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Coracao9" type="TextureRect" parent="Topo/Esquerda/Vidas"]
+layout_mode = 2
+texture = ExtResource("cor")
+
+[node name="Nivel" type="HBoxContainer" parent="Topo/Esquerda"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Valor" type="Label" parent="Topo/Esquerda/Nivel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.17, 0.91, 0.96, 1)
+text = "NV 1"
+
+[node name="BarraXP" type="ProgressBar" parent="Topo/Esquerda/Nivel"]
+custom_minimum_size = Vector2(46, 4)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("fundo_BarraXP")
+theme_override_styles/fill = SubResource("cheio_BarraXP")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Espaco" type="Control" parent="Topo"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Chaves" type="HBoxContainer" parent="Topo"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Icone" type="TextureRect" parent="Topo/Chaves"]
+layout_mode = 2
+texture = ExtResource("chave")
+
+[node name="Valor" type="Label" parent="Topo/Chaves"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+text = "0/3"
+vertical_alignment = 1
+
+[node name="Pontos" type="HBoxContainer" parent="Topo"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Icone" type="TextureRect" parent="Topo/Pontos"]
+layout_mode = 2
+texture = ExtResource("moeda")
+
+[node name="Valor" type="Label" parent="Topo/Pontos"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="Tempo" type="Label" parent="Topo"]
+custom_minimum_size = Vector2(24, 16)
+layout_mode = 2
+size_flags_vertical = 0
+text = "3:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Habilidades" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -26.0
+offset_right = 140.0
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="Poder" type="VBoxContainer" parent="Habilidades"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Icone" type="TextureRect" parent="Habilidades/Poder"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Recarga" type="ProgressBar" parent="Habilidades/Poder"]
+custom_minimum_size = Vector2(16, 2)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("fundo_Recarga")
+theme_override_styles/fill = SubResource("cheio_Recarga")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Esquiva" type="VBoxContainer" parent="Habilidades"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Icone" type="TextureRect" parent="Habilidades/Esquiva"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("icone_esquiva")
+
+[node name="Recarga" type="ProgressBar" parent="Habilidades/Esquiva"]
+custom_minimum_size = Vector2(16, 2)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("fundo_RecargaEsq")
+theme_override_styles/fill = SubResource("cheio_RecargaEsq")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Nome" type="Label" parent="Habilidades/Poder"]
+visible = false
+layout_mode = 2
+
+[node name="Mensagem" type="Label" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+
+[node name="Titulo" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -40.0
+offset_right = 120.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Linha1" type="Label" parent="Titulo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+text = "Fase 1"
+horizontal_alignment = 1
+
+[node name="Linha2" type="Label" parent="Titulo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Nome"
+horizontal_alignment = 1
+
+[node name="Chefe" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -22.0
+offset_right = 90.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 1
+
+[node name="Nome" type="Label" parent="Chefe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.894, 0.231, 0.267, 1)
+text = "Chefe"
+horizontal_alignment = 1
+
+[node name="Barra" type="ProgressBar" parent="Chefe"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+max_value = 40.0
+value = 40.0
+show_percentage = false

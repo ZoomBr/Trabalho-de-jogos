@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ClasseHeroi" format=3]
+
+[ext_resource type="Script" path="res://scripts/dados/classe_heroi.gd" id="1"]
+[ext_resource type="Texture2D" path="res://arte/personagens/arqueira.png" id="2"]
+[ext_resource type="Texture2D" path="res://arte/ui/icones.png" id="3"]
+
+[sub_resource type="AtlasTexture" id="icone"]
+atlas = ExtResource("3")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1")
+id = "arqueira"
+nome = "Arqueira"
+descricao = "Rápida e certeira. Flechas atravessam o primeiro inimigo."
+textura = ExtResource("2")
+vida_inicial = 4
+vida_maxima = 6
+velocidade = 96.0
+dano = 1
+cadencia = 0.22
+ataque = 2
+poder = 2
+nome_ataque = "Flecha"
+nome_poder = "Chuva de Flechas"
+descricao_poder = "Dispara três leques de flechas na direção da mira."
+recarga_poder = 6.0
+icone_poder = SubResource("icone")

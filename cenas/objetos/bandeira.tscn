@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objetos/area_objetivo.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/objetos/bandeira.png" id="tex"]
+
+[sub_resource type="AtlasTexture" id="b0"]
+atlas = ExtResource("tex")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="b1"]
+atlas = ExtResource("tex")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="sf"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("b0")}, {"duration": 1.0, "texture": SubResource("b1")}], "loop": true, "name": &"default", "speed": 3.0}]
+
+[sub_resource type="RectangleShape2D" id="forma"]
+size = Vector2(12, 20)
+
+[node name="Bandeira" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("script")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("sf")
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("forma")

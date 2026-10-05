@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/menu_pausa.gd" id="script"]
+
+[node name="MenuPausa" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("script")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.094, 0.078, 0.145, 0.75)
+
+[node name="Caixa" type="VBoxContainer" parent="Fundo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -62.0
+offset_right = 70.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="Titulo" type="Label" parent="Fundo/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Pausado"
+horizontal_alignment = 1
+
+[node name="BotaoContinuar" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continuar"
+
+[node name="BotaoReiniciar" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reiniciar fase"
+
+[node name="BotaoMusica" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Música"
+
+[node name="BotaoSons" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Efeitos"
+
+[node name="BotaoMenu" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Menu principal"
+
+[node name="BotaoSair" type="Button" parent="Fundo/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sair do jogo"

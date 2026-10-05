@@ -1,0 +1,209 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/menu_principal.gd" id="script"]
+[ext_resource type="PackedScene" path="res://cenas/mundos/mundo_fase_1.tscn" id="mundo"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("script")
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="Mundo" parent="Cenario" instance=ExtResource("mundo")]
+
+[node name="Camera" type="Camera2D" parent="Cenario"]
+position = Vector2(400, 240)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Escurecer" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.094, 0.078, 0.145, 0.55)
+
+[node name="Principal" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="UI/Principal"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Titulo" type="Label" parent="UI/Principal/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "Chaves do Reino"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="UI/Principal/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+text = "Recupere as chaves e derrote o Rei Slime!"
+horizontal_alignment = 1
+
+[node name="Espaco" type="Control" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="BotaoJogar" type="Button" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jogar"
+
+[node name="BotaoFases" type="Button" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Selecionar fase"
+
+[node name="BotaoComoJogar" type="Button" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Como jogar"
+
+[node name="BotaoCreditos" type="Button" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Créditos"
+
+[node name="BotaoSair" type="Button" parent="UI/Principal/Caixa"]
+custom_minimum_size = Vector2(130, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sair"
+
+[node name="Recorde" type="Label" parent="UI/Principal/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.906, 0.38, 1)
+text = "Recorde: 0"
+horizontal_alignment = 1
+
+[node name="Fases" type="CenterContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="UI/Fases"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Titulo" type="Label" parent="UI/Fases/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Selecionar fase"
+horizontal_alignment = 1
+
+[node name="Fase1" type="Button" parent="UI/Fases/Caixa"]
+custom_minimum_size = Vector2(170, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fase 1"
+
+[node name="Fase2" type="Button" parent="UI/Fases/Caixa"]
+custom_minimum_size = Vector2(170, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fase 2"
+
+[node name="Fase3" type="Button" parent="UI/Fases/Caixa"]
+custom_minimum_size = Vector2(170, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fase 3"
+
+[node name="BotaoVoltar" type="Button" parent="UI/Fases/Caixa"]
+custom_minimum_size = Vector2(170, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"
+
+
+[node name="ComoJogar" type="CenterContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="UI/ComoJogar"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Titulo" type="Label" parent="UI/ComoJogar/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Como jogar"
+horizontal_alignment = 1
+
+[node name="Texto" type="Label" parent="UI/ComoJogar/Caixa"]
+layout_mode = 2
+text = "Ache as 3 chaves, abra o portão e vença o chefão da fase.
+Mover: WASD/setas   Atacar: Espaço/J/clique
+Poder: Q/K/botão direito   Esquiva: Shift/L
+Pausar: Esc/P.   Inimigos dão experiência: a cada
+nível você escolhe uma melhoria.
+Golem Escudeiro bloqueia golpes de frente: use a
+esquiva para atacar pelas costas! Elites dourados
+têm o dobro de vida e dão mais recompensa."
+horizontal_alignment = 1
+
+[node name="BotaoVoltar" type="Button" parent="UI/ComoJogar/Caixa"]
+custom_minimum_size = Vector2(80, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"
+
+
+[node name="Creditos" type="CenterContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="UI/Creditos"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Titulo" type="Label" parent="UI/Creditos/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Créditos"
+horizontal_alignment = 1
+
+[node name="Texto" type="Label" parent="UI/Creditos/Caixa"]
+layout_mode = 2
+text = "Chaves do Reino\n\nDesenvolvido por: [Integrante 1] e [Integrante 2]\nIntrodução ao Desenvolvimento de Jogos\nProfª Camila Laranjeira da Silva\nIFMG - Campus Ribeirão das Neves\n\nEngine: Godot 4.5    Arte, sons e músicas: originais\nFonte: Kenney Mini Square, por Kenney (kenney.nl)"
+horizontal_alignment = 1
+
+[node name="BotaoVoltar" type="Button" parent="UI/Creditos/Caixa"]
+custom_minimum_size = Vector2(80, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"

@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objetos/onda_choque.gd" id="script"]
+
+[node name="OndaDeChoque" type="Node2D"]
+script = ExtResource("script")

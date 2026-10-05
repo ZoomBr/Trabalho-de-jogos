@@ -1,0 +1,154 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/selecao_classe.gd" id="script"]
+
+[node name="SelecaoClasse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("script")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.094, 0.078, 0.145, 1)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Titulo" type="Label" parent="Centro/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+theme_override_font_sizes/font_size = 16
+text = "Escolha seu herói"
+horizontal_alignment = 1
+
+[node name="Cartas" type="HBoxContainer" parent="Centro/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Carta0" type="PanelContainer" parent="Centro/Caixa/Cartas"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="V" type="VBoxContainer" parent="Centro/Caixa/Cartas/Carta0"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Retrato" type="TextureRect" parent="Centro/Caixa/Cartas/Carta0/V"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Centro/Caixa/Cartas/Carta0/V"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+text = "Classe"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="Centro/Caixa/Cartas/Carta0/V"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+theme_override_constants/line_spacing = -3
+horizontal_alignment = 1
+text = "info"
+
+[node name="Botao" type="Button" parent="Centro/Caixa/Cartas/Carta0/V"]
+layout_mode = 2
+text = "Escolher"
+
+[node name="Carta1" type="PanelContainer" parent="Centro/Caixa/Cartas"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="V" type="VBoxContainer" parent="Centro/Caixa/Cartas/Carta1"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Retrato" type="TextureRect" parent="Centro/Caixa/Cartas/Carta1/V"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Centro/Caixa/Cartas/Carta1/V"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+text = "Classe"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="Centro/Caixa/Cartas/Carta1/V"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+theme_override_constants/line_spacing = -3
+horizontal_alignment = 1
+text = "info"
+
+[node name="Botao" type="Button" parent="Centro/Caixa/Cartas/Carta1/V"]
+layout_mode = 2
+text = "Escolher"
+
+[node name="Carta2" type="PanelContainer" parent="Centro/Caixa/Cartas"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="V" type="VBoxContainer" parent="Centro/Caixa/Cartas/Carta2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Retrato" type="TextureRect" parent="Centro/Caixa/Cartas/Carta2/V"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Centro/Caixa/Cartas/Carta2/V"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996, 0.682, 0.204, 1)
+text = "Classe"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="Centro/Caixa/Cartas/Carta2/V"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+theme_override_constants/line_spacing = -3
+horizontal_alignment = 1
+text = "info"
+
+[node name="Botao" type="Button" parent="Centro/Caixa/Cartas/Carta2/V"]
+layout_mode = 2
+text = "Escolher"
+
+[node name="Descricao" type="Label" parent="Centro/Caixa"]
+custom_minimum_size = Vector2(300, 22)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BotaoVoltar" type="Button" parent="Centro/Caixa"]
+custom_minimum_size = Vector2(80, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"

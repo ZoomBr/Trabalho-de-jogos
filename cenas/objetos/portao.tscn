@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objetos/portao.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/objetos/itens.png" id="tex"]
+
+[sub_resource type="RectangleShape2D" id="forma"]
+size = Vector2(16, 16)
+
+[node name="Portao" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("script")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("tex")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 16)
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("forma")

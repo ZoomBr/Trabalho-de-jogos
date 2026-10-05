@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objetos/ataque_projetil.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/objetos/ataques.png" id="tex"]
+
+[sub_resource type="AtlasTexture" id="at1"]
+atlas = ExtResource("tex")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="sf"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("at1")}], "loop": true, "name": &"default", "speed": 1.0}]
+
+[sub_resource type="CircleShape2D" id="forma"]
+radius = 3.0
+
+[node name="Flecha" type="Area2D"]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("script")
+velocidade = 260.0
+perfura = 1
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("sf")
+autoplay = "default"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("forma")
+
+[node name="TimerVida" type="Timer" parent="."]
+wait_time = 1.0
+one_shot = true
+autostart = true

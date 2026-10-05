@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/efeitos/efeito_particulas.gd" id="script"]
+
+[sub_resource type="Gradient" id="fade"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="EfeitoMorte" type="CPUParticles2D"]
+z_index = 5
+emitting = false
+amount = 16
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 60.0)
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+damping_min = 40.0
+damping_max = 80.0
+scale_amount_min = 1.0
+scale_amount_max = 3.0
+color = Color(0.39, 0.78, 0.3, 1)
+color_ramp = SubResource("fade")
+script = ExtResource("script")

@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/inimigos/rei_slime.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/personagens/rei_slime.png" id="tex"]
+[ext_resource type="Texture2D" path="res://arte/objetos/sombra_grande.png" id="sombra"]
+
+[sub_resource type="AtlasTexture" id="at1"]
+atlas = ExtResource("tex")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="at2"]
+atlas = ExtResource("tex")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="at3"]
+atlas = ExtResource("tex")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="sf"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("at1")}], "loop": true, "name": &"parado", "speed": 2.0}, {"frames": [{"duration": 1.0, "texture": SubResource("at2")}, {"duration": 1.0, "texture": SubResource("at3")}], "loop": true, "name": &"andar", "speed": 3.0}]
+
+[sub_resource type="CircleShape2D" id="corpo"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="dano"]
+radius = 13.0
+
+[node name="ReiSlime" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 33
+motion_mode = 1
+script = ExtResource("script")
+nome_chefe = "Rei Slime"
+vida_maxima = 70
+raio_despertar = 120.0
+velocidade_andar = 22.0
+pontos = 600
+xp = 30
+
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 14)
+texture = ExtResource("sombra")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("sf")
+animation = &"parado"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("corpo")
+
+[node name="AreaDano" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Forma" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(0, 5)
+shape = SubResource("dano")

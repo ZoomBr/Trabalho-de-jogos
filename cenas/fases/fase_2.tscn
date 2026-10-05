@@ -1,0 +1,210 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/fases/fase.gd" id="script"]
+[ext_resource type="PackedScene" path="res://cenas/mundos/mundo_fase_2.tscn" id="mundo"]
+[ext_resource type="PackedScene" path="res://cenas/personagens/jogador.tscn" id="jogador"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/moeda.tscn" id="moeda"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/chave.tscn" id="chave"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/coracao.tscn" id="coracao"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/portao.tscn" id="portao"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/portal_saida.tscn" id="saida"]
+[ext_resource type="PackedScene" path="res://cenas/objetos/tocha.tscn" id="tocha"]
+[ext_resource type="PackedScene" path="res://cenas/ui/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://cenas/ui/menu_pausa.tscn" id="pausa"]
+[ext_resource type="PackedScene" path="res://cenas/ui/subir_nivel.tscn" id="nivel"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/esqueleto_arqueiro.tscn" id="esqueleto_arqueiro"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/fantasma.tscn" id="fantasma"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/morcego.tscn" id="morcego"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_cuspidor.tscn" id="slime_cuspidor"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_patrulheiro.tscn" id="slime_patrulheiro"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/slime_perseguidor.tscn" id="slime_perseguidor"]
+[ext_resource type="PackedScene" path="res://cenas/inimigos/bruxa_pantano.tscn" id="chefe"]
+
+[node name="Fase2" type="Node2D"]
+script = ExtResource("script")
+tempo_limite = 270.0
+musica = "fase2"
+cenas_spawn = Array[PackedScene]([ExtResource("slime_perseguidor"), ExtResource("morcego"), ExtResource("slime_cuspidor"), ExtResource("esqueleto_arqueiro"), ExtResource("fantasma")])
+intervalo_spawn_inicial = 11.0
+intervalo_spawn_minimo = 5.0
+max_inimigos = 14
+tem_bandeira = false
+luz_jogador = false
+
+[node name="Mundo" parent="." instance=ExtResource("mundo")]
+
+[node name="Ambiente" type="CanvasModulate" parent="."]
+color = Color(0.72, 0.78, 0.85, 1)
+
+[node name="Decoracoes" type="Node2D" parent="."]
+
+[node name="Entidades" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Portoes" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="Portao1" parent="Entidades/Portoes" instance=ExtResource("portao")]
+position = Vector2(744, 424)
+
+[node name="Itens" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="Chave1" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(472, 152)
+
+[node name="Chave2" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(72, 456)
+
+[node name="Chave3" parent="Entidades/Itens" instance=ExtResource("chave")]
+position = Vector2(856, 104)
+
+[node name="Moeda1" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(136, 72)
+
+[node name="Moeda2" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(248, 72)
+
+[node name="Moeda3" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(328, 152)
+
+[node name="Moeda4" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(424, 248)
+
+[node name="Moeda5" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(568, 248)
+
+[node name="Moeda6" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(648, 136)
+
+[node name="Moeda7" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(760, 56)
+
+[node name="Moeda8" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(168, 328)
+
+[node name="Moeda9" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(168, 408)
+
+[node name="Moeda10" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(296, 456)
+
+[node name="Moeda11" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(424, 456)
+
+[node name="Moeda12" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(488, 392)
+
+[node name="Moeda13" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(584, 328)
+
+[node name="Moeda14" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(696, 424)
+
+[node name="Moeda15" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(840, 232)
+
+[node name="Moeda16" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(72, 232)
+
+[node name="Moeda17" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(296, 216)
+
+[node name="Moeda18" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(712, 216)
+
+[node name="Moeda19" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(376, 72)
+
+[node name="Moeda20" parent="Entidades/Itens" instance=ExtResource("moeda")]
+position = Vector2(568, 472)
+
+[node name="Coracao1" parent="Entidades/Itens" instance=ExtResource("coracao")]
+position = Vector2(232, 216)
+
+[node name="Coracao2" parent="Entidades/Itens" instance=ExtResource("coracao")]
+position = Vector2(680, 472)
+
+[node name="Coracao3" parent="Entidades/Itens" instance=ExtResource("coracao")]
+position = Vector2(808, 24)
+
+[node name="Inimigos" type="Node2D" parent="Entidades"]
+y_sort_enabled = true
+
+[node name="SlimePatrulheiro1" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(104, 72)
+direcao = Vector2(1, 0)
+distancia = 160.0
+
+[node name="SlimePatrulheiro2" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(168, 296)
+direcao = Vector2(0, 1)
+distancia = 128.0
+
+[node name="SlimePatrulheiro3" parent="Entidades/Inimigos" instance=ExtResource("slime_patrulheiro")]
+position = Vector2(520, 248)
+direcao = Vector2(1, 0)
+distancia = 112.0
+
+[node name="SlimeCuspidor1" parent="Entidades/Inimigos" instance=ExtResource("slime_cuspidor")]
+position = Vector2(392, 216)
+
+[node name="SlimeCuspidor2" parent="Entidades/Inimigos" instance=ExtResource("slime_cuspidor")]
+position = Vector2(616, 88)
+
+[node name="SlimeCuspidor3" parent="Entidades/Inimigos" instance=ExtResource("slime_cuspidor")]
+position = Vector2(136, 232)
+
+[node name="EsqueletoArqueiro1" parent="Entidades/Inimigos" instance=ExtResource("esqueleto_arqueiro")]
+position = Vector2(456, 424)
+
+[node name="EsqueletoArqueiro2" parent="Entidades/Inimigos" instance=ExtResource("esqueleto_arqueiro")]
+position = Vector2(856, 232)
+
+[node name="Morcego1" parent="Entidades/Inimigos" instance=ExtResource("morcego")]
+position = Vector2(440, 72)
+
+[node name="Morcego2" parent="Entidades/Inimigos" instance=ExtResource("morcego")]
+position = Vector2(200, 424)
+
+[node name="Fantasma1" parent="Entidades/Inimigos" instance=ExtResource("fantasma")]
+position = Vector2(712, 328)
+
+[node name="Fantasma2" parent="Entidades/Inimigos" instance=ExtResource("fantasma")]
+position = Vector2(552, 280)
+
+[node name="SlimePerseguidor1" parent="Entidades/Inimigos" instance=ExtResource("slime_perseguidor")]
+position = Vector2(760, 72)
+
+[node name="Projeteis" type="Node2D" parent="Entidades"]
+
+[node name="Saida" parent="Entidades" instance=ExtResource("saida")]
+position = Vector2(824, 424)
+
+[node name="Chefe" parent="Entidades" instance=ExtResource("chefe")]
+position = Vector2(808, 344)
+
+[node name="Jogador" parent="Entidades" instance=ExtResource("jogador")]
+position = Vector2(40, 72)
+
+[node name="PontosSpawn" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(40, 456)
+
+[node name="Spawn2" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(856, 24)
+
+[node name="Spawn3" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(536, 488)
+
+[node name="Spawn4" type="Marker2D" parent="PontosSpawn"]
+position = Vector2(712, 248)
+
+[node name="TimerSpawn" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("hud")]
+
+[node name="MenuPausa" parent="." instance=ExtResource("pausa")]
+
+[node name="SubirNivel" parent="." instance=ExtResource("nivel")]

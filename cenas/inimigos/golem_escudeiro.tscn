@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/inimigos/golem_escudeiro.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/personagens/inimigos2.png" id="tex"]
+[ext_resource type="Texture2D" path="res://arte/objetos/sombra.png" id="sombra"]
+
+[sub_resource type="AtlasTexture" id="at1"]
+atlas = ExtResource("tex")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="at2"]
+atlas = ExtResource("tex")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="sf"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("at1")}, {"duration": 1.0, "texture": SubResource("at2")}], "loop": true, "name": &"andar", "speed": 3.0}]
+
+[sub_resource type="CircleShape2D" id="corpo"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="dano"]
+radius = 7.5
+
+[node name="GolemEscudeiro" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 33
+motion_mode = 1
+script = ExtResource("script")
+vida_maxima = 6
+pontos = 60
+xp = 7
+velocidade = 24.0
+chance_moeda = 0.8
+chance_coracao = 0.2
+cor_efeito = Color(0.55, 0.6, 0.7, 1)
+
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 8.0)
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("sombra")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.0)
+scale = Vector2(1.0, 1.0)
+sprite_frames = SubResource("sf")
+animation = &"andar"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("corpo")
+
+[node name="AreaDano" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Forma" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(0, 4)
+shape = SubResource("dano")

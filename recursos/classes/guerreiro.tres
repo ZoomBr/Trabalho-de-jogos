@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ClasseHeroi" format=3]
+
+[ext_resource type="Script" path="res://scripts/dados/classe_heroi.gd" id="1"]
+[ext_resource type="Texture2D" path="res://arte/personagens/guerreiro.png" id="2"]
+[ext_resource type="Texture2D" path="res://arte/ui/icones.png" id="3"]
+
+[sub_resource type="AtlasTexture" id="icone"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1")
+id = "guerreiro"
+nome = "Guerreiro"
+descricao = "Forte e resistente. Luta de perto com a espada."
+textura = ExtResource("2")
+vida_inicial = 5
+vida_maxima = 7
+velocidade = 78.0
+dano = 2
+cadencia = 0.32
+ataque = 0
+poder = 0
+nome_ataque = "Corte de espada"
+nome_poder = "Giro da Espada"
+descricao_poder = "Gira a espada, acerta todos por perto e fica invencível."
+recarga_poder = 6.0
+icone_poder = SubResource("icone")

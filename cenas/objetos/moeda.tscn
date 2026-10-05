@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objetos/coletavel.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/objetos/itens.png" id="tex"]
+[ext_resource type="Texture2D" path="res://arte/objetos/sombra.png" id="sombra"]
+
+[sub_resource type="AtlasTexture" id="at1"]
+atlas = ExtResource("tex")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="at2"]
+atlas = ExtResource("tex")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="at3"]
+atlas = ExtResource("tex")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="at4"]
+atlas = ExtResource("tex")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="sf"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("at1")}, {"duration": 1.0, "texture": SubResource("at2")}, {"duration": 1.0, "texture": SubResource("at3")}, {"duration": 1.0, "texture": SubResource("at4")}], "loop": true, "name": &"default", "speed": 8.0}]
+
+[sub_resource type="CircleShape2D" id="forma"]
+radius = 6.0
+
+[node name="Moeda" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("script")
+tipo = 0
+
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("sombra")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("sf")
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("forma")

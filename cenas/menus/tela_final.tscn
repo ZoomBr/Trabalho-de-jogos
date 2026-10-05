@@ -1,0 +1,90 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/menus/tela_final.gd" id="script"]
+[ext_resource type="Texture2D" path="res://arte/personagens/guerreiro.png" id="heroi"]
+[ext_resource type="Texture2D" path="res://arte/objetos/bandeira.png" id="bandeira"]
+
+[sub_resource type="AtlasTexture" id="heroi_frente"]
+atlas = ExtResource("heroi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="bandeira_q"]
+atlas = ExtResource("bandeira")
+region = Rect2(0, 0, 16, 32)
+
+[node name="TelaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("script")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.094, 0.078, 0.145, 1)
+
+[node name="Heroi" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 4.0
+offset_right = 168.0
+offset_bottom = 36.0
+texture = SubResource("heroi_frente")
+expand_mode = 1
+
+[node name="Coroa" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 4.0
+offset_right = 182.0
+offset_bottom = 36.0
+texture = SubResource("bandeira_q")
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caixa" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Titulo" type="Label" parent="Centro/Caixa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Vitória!"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="Centro/Caixa"]
+layout_mode = 2
+text = "Subtítulo"
+horizontal_alignment = 1
+
+[node name="Estatisticas" type="Label" parent="Centro/Caixa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+text = "Estatísticas"
+horizontal_alignment = 1
+
+[node name="BotaoNovamente" type="Button" parent="Centro/Caixa"]
+custom_minimum_size = Vector2(140, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jogar de novo"
+
+[node name="BotaoMenu" type="Button" parent="Centro/Caixa"]
+custom_minimum_size = Vector2(140, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Menu principal"
